@@ -38,8 +38,18 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .hamburger .bar{display:block;width:22px;height:2px;background:var(--text);margin:5px 0;}
 
 /* Footer */
-.site-footer{border-top:1px solid var(--border);background:#fafafa;}
-.site-footer .container{padding:16px 0;color:var(--muted);}
+.site-footer {
+  border-top: none;       /* 去掉横线 */
+  background: none;       /* 去掉背景 */
+  margin-top: 40px;       /* 页面内容和底部文字之间留一点距离 */
+}
+
+.site-footer .container {
+  padding: 10px 0;        /* 减少上下内边距，让文字更紧凑 */
+  color: var(--muted);
+  font-size: 12px;        /* 设置 12px 大小 */
+  text-align: center;     /* 居中显示 */
+}
 
 /* Utilities */
 .pad-y{padding:32px 0;}
