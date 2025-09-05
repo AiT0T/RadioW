@@ -28,6 +28,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 @keyframes blink{50%{opacity:0;}}
 .site-nav{display:flex;gap:18px;}
 .site-nav a {
+  font-family: monospace;
   font-size: 1.125rem; /* 设置为和 logo 一样大 */
 }
 .site-nav a.active{font-weight:700;}
