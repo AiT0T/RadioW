@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../assets/css/style.css">
+<title>MMDVM 热点：从 0 到通联</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo-text" href="../index.html"><span class="logo-word">BA8AKA</span><span class="cursor">▇</span></a>
+    <nav class="site-nav"><a href="../articles.html">文章</a><a href="../resources.html">资源</a><a href="../about.html">关于我</a></nav>
+  </div>
+</header>
+<main class="container pad-y readable">
+  <h1 class="post-title">MMDVM 热点：从 0 到通联</h1>
+  <p class="muted"><time class="digits" datetime="2025-08-18">2025-08-18</time></p>
+  <p>本文记录我使用树莓派 + MMDVM 板卡搭建数字热点的过程，并给出 DMR 的常见参数建议与排错要点。</p>
+  <h2>硬件与接线</h2>
+  <p>选择稳定的电源与散热，串口参数按固件说明设置；首次上电后先确认射频部分温升与驻波。</p>
+  <h2>Pi-Star 基础配置</h2>
+  <ul>
+    <li>设置呼号与 DMR ID。</li>
+    <li>选择正确的频率与时隙。</li>
+    <li>写入常用 TalkGroup 列表并保存。</li>
+  </ul>
+  <h2>常见问题</h2>
+  <p>如出现 BER 偏大、掉线频繁，优先检查 Wi‑Fi 稳定性与收发功率匹配。</p>
+</main>
+<footer class="site-footer">
+  <div class="container"><p>© <span class="digits">2025</span> BA8AKA</p></div>
+</footer>
+</body>
+</html>
