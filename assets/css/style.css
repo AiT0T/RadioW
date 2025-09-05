@@ -46,8 +46,9 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 .site-footer .container {
   padding: 10px 0;        /* 减少上下内边距，让文字更紧凑 */
-  color: var(--muted);
+  color: #999999;
   font-size: 12px;        /* 设置 12px 大小 */
+  font-weight: bold;      /* 加粗文字 */
   text-align: center;     /* 居中显示 */
 }
 
