@@ -45,3 +45,11 @@
     });
   }
 })();
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector(".hero-title");
+  const hr = document.querySelector(".hero-sep");
+  if (title && hr) {
+    hr.style.width = title.offsetWidth + "px";
+  }
+});
+
