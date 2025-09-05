@@ -31,7 +31,8 @@
 
       const meta = document.createElement('div');
       meta.className = 'card-meta';
-      meta.innerHTML = 'PDF · <span class="digits">' + (it.size || '未知大小') + '</span>';
+      const ext = it.file.split('.').pop().toUpperCase();
+      meta.innerHTML = ext + ' · <span class="digits">' + (it.size || '未知大小') + '</span>';
 
       const link = document.createElement('a');
       link.className = 'btn';
