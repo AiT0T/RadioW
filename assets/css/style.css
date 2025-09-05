@@ -79,3 +79,35 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   .site-nav.open{display:flex;}
   .hamburger{display:block;}
 }
+
+/* ---------- Resources (Downloads → 下载) ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-title { font-weight: 700; }
+.card-meta { color: var(--muted); font-size: 14px; }
+.card a.btn {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #f7f7f7;
+  color: #111;
+  text-decoration: none;
+}
+.card a.btn:hover { background: #efefef; }
