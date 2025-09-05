@@ -49,10 +49,11 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .hero{padding:40px 0;}
 .hero-title{font-family:"SimSun","Songti SC","STSong",serif;font-size:clamp(28px,5vw,48px);margin:0;font-weight:800;}
 .hero-sep {
-  width: fit-content;          /* 宽度随标题 */
+  width: 60%;              /* 分割线长度，可改成 50% 或具体像素值 */
+  max-width: 400px;        /* 限制最大宽度，避免太长 */
   border: 0;
-  border-top: 1px solid #aaa;  /* 细、淡灰色线条 */
-  margin: 8px auto;            /* 与标题、副标题间距更小 */
+  border-top: 1px solid #aaa; /* 更细更淡 */
+  margin: 8px auto;
 }
 .hero-subtitle {
   font-size: 18px;
