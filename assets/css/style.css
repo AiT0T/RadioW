@@ -14,7 +14,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .container{width:92%;max-width:1100px;margin:0 auto;}
 
 /* Header/Nav */
-.site-header{position:sticky;top:0;z-index:1000;background:#f7f7f7;border-bottom:1px solid var(--border);}
+.site-header{position:sticky;top:0;z-index:1000;background:#f7f7f7;border-bottom:none;}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
 .logo-text{font-family:monospace;font-size:1.125rem;font-weight:700;color:var(--brand);display:inline-flex;align-items:center;gap: 8px;}
 .logo-text .cursor{
