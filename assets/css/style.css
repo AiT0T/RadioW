@@ -28,8 +28,10 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 @keyframes blink{50%{opacity:0;}}
 .site-nav{display:flex;gap:18px;}
 .site-nav a {
-  font-family: monospace;
-  font-size: 1.125rem; /* 设置为和 logo 一样大 */
+  font-size: 1.125rem;
+  font-family: sans-serif; /* 或者 monospace，看你想要的风格 */
+  color: #3f3f3f;          /* 改成固定深灰色 */
+  text-decoration: none;   /* 去掉默认下划线 */
 }
 .site-nav a.active{font-weight:700;}
 .hamburger{display:none;background:none;border:none;padding:6px;cursor:pointer;}
