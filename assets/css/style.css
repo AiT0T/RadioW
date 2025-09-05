@@ -78,7 +78,12 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 }
 
 /* Page title */
-.page-title{font-size:28px;margin:0 0 16px 0;font-weight:800;}
+.page-title {
+  font-size: 30px;
+  margin-top: 35px;   /* 标题与导航栏的间距 */
+  margin-bottom: 20px; /* 标题与正文的间距 */
+  font-weight: 800;
+}
 
 /* Articles */
 .article-list{display:flex;flex-direction:column;gap:28px;}
