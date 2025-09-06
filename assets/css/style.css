@@ -52,6 +52,15 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   margin:0.3em 0;  /* 上下间距 */
 }
 
+/* 遮罩层 */
+#overlay{
+  position: fixed;
+  inset: 0;                     /* 等价于 top:0; right:0; bottom:0; left:0 */
+  background: rgba(0,0,0,.4);   /* 半透明黑 */
+  display: none;                /* 默认隐藏 */
+  z-index: 1005;                /* 盖住正文，但低于菜单 */
+}
+
 /* Footer */
 .site-footer {
   border-top: none;                    /* 去掉横线 */
@@ -199,20 +208,24 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 /* ---------- 移动端优化 ---------- */
 @media (max-width: 860px) {
   /* 导航栏与 Hero */
-  .site-nav {
-    position: absolute;
-    right: 0;
-    top: 56px;
+/* 右侧抽屉式菜单 */
+  .site-nav{
+    position: fixed;
+    top: 0;
+    right: -260px;              /* 初始藏到屏外 */
+    width: 240px;
+    height: 100vh;
     background: var(--header-bg);
-    border-left: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 10px 14px;
-    display: none;
+    display: flex;              /* 始终是 flex，不再用 display:none 切换 */
     flex-direction: column;
-    gap: 10px;
+    gap: 16px;
+    padding: 20px;
+    border-left: 1px solid var(--border);
+    transition: right .3s ease; /* 平滑滑入/滑出 */
+    z-index: 1010;              /* 高于遮罩层 */
   }
-  .site-nav.open { display: flex; }
-  .hamburger { display: block; }
+  .site-nav.open{ right: 0; }   /* 展开时滑入 */
+  .hamburger{ display:block; position: relative; z-index: 1020; } /* 确保按钮在遮罩之上 */
   .hero-title { font-size: 28px; letter-spacing: 0.03em; }
   .hero-subtitle { font-size: 14px; }
   .hero-sep { width: 30px; }
