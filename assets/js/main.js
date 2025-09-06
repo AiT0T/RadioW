@@ -58,33 +58,39 @@
     }
   });
 
-  // resources
-  const container = document.getElementById('downloads');
-  if(container){
-    const items = (window.BA8AKA_DOWNLOADS || []);
-    items.forEach(it=>{
-      const card = document.createElement('div');
-      card.className = 'card';
+// resources
+const container = document.getElementById('downloads');
+if (container) {
+  const items = (window.BA8AKA_DOWNLOADS || []);
+  items.forEach(it => {
+    const card = document.createElement('div');
+    card.className = 'card';
 
-      const title = document.createElement('div');
-      title.className = 'card-title';
-      title.textContent = it.title || '下载项';
+    // 文件名 → 可点击预览
+    const title = document.createElement('a');
+    title.className = 'card-title';
+    title.href = it.file;
+    title.target = '_blank';                // 新标签页打开
+    title.rel = 'noopener noreferrer';
+    title.textContent = it.title || '下载项';
 
-      const meta = document.createElement('div');
-      meta.className = 'card-meta';
-      const ext = it.file.split('.').pop().toUpperCase();
-      meta.innerHTML = ext + ' · <span class="digits">' + (it.size || '未知大小') + '</span>';
+    // 元信息（格式 + 大小）
+    const meta = document.createElement('div');
+    meta.className = 'card-meta';
+    const ext = it.file.split('.').pop().toUpperCase();
+    meta.innerHTML = ext + ' · <span class="digits">' + (it.size || '未知大小') + '</span>';
 
-      const link = document.createElement('a');
-      link.className = 'btn';
-      link.href = it.file;
-      link.textContent = '下载';
-      link.setAttribute('download', '');
+    // 下载按钮（强制下载）
+    const link = document.createElement('a');
+    link.className = 'btn';
+    link.href = it.file;
+    link.textContent = '下载';
+    link.setAttribute('download', '');
 
-      card.append(title, meta, link);
-      container.append(card);
-    });
-  }
+    card.append(title, meta, link);
+    container.append(card);
+  });
+}
 })();
 
 // 首页标题分割线宽度
