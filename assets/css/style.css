@@ -119,7 +119,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 /* 单篇文章标题下的日期 */
 .post-title + .muted time {
-  font-size: 12px;      /* 修改成你需要的大小 */
+  font-size: 14px;      /* 修改成你需要的大小 */
   color: var(--muted);  /* 保持浅灰色 */
 }
 
