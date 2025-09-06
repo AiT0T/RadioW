@@ -370,6 +370,7 @@ body.home main {
       color: #888888;
     }
   }
+}
   
   /* 移动端下拉菜单：用变量而不是写死浅色 */
   @media (max-width: 860px) {
@@ -377,4 +378,3 @@ body.home main {
       background: var(--header-bg);
     }
   }
-}
