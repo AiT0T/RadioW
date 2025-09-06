@@ -151,7 +151,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 /* About & Posts */
 .about-body p,.readable p{
   text-align:justify;
-  text-justify:inter-ideograph;
+  text-justify:distribute;
   margin:0 0 1.5em 0;
   line-height:1.9;
   letter-spacing:0.05em;
