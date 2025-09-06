@@ -196,7 +196,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   }
   .site-nav.open { display: flex; }
   .hamburger { display: block; }
-  .hero-title { font-size: 28px; }
+  .hero-title { font-size: 28px; letter-spacing: 0.03em; }
   .hero-subtitle { font-size: 14px; }
   .hero-sep { width: 30px; }
 
@@ -221,6 +221,21 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
     color: var(--muted);
   }
 }
+
+/* 小屏手机（例如 iPhone 12/13/14 普通版，宽度 ≤420px） */
+@media (max-width: 420px) {
+  .hero-title {
+    font-size: 24px;       /* 主标题更小，避免换行 */
+    letter-spacing: 0.03em;/* 稍微收紧字间距 */
+  }
+  .hero-subtitle {
+    font-size: 12px;       /* 副标题更小，更精致 */
+  }
+  .hero-sep {
+    width: 24px;           /* 分割线也缩短一点 */
+  }
+}
+
 
 /* ---------- Resources (Downloads → 下载) ---------- */
 .cards {
