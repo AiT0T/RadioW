@@ -60,18 +60,28 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 }
 
 .site-footer .container {
-  padding: 8px 0;        /* 减少上下内边距，让文字更紧凑 */
+  padding: 8px 0;
   color: #999999;
-  font-size: 12px;        /* 设置 12px 大小 */
-  font-weight: bold;      /* 加粗文字 */
-  text-align: center;     /* 居中显示 */
-  animation: footer-breath 3s ease-in-out infinite; /* 呼吸动画 */
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  animation: footer-breath 4s ease-in-out infinite; /* 呼吸动画，4秒一循环 */
 }
+
 /* 定义动画 */
 @keyframes footer-breath {
-  0%   { opacity: 0.6; }
-  50%  { opacity: 1; }
-  100% { opacity: 0.6; }
+  0% {
+    opacity: 0.8;
+    color: #8c8c8c;  /* 较浅灰 */
+  }
+  50% {
+    opacity: 1;
+    color: #aaaaaa;  /* 稍微亮一些 */
+  }
+  100% {
+    opacity: 0.8;
+    color: #8c8c8c;  /* 回到较浅灰 */
+  }
 }
 
 /* Utilities */
