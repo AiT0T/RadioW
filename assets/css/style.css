@@ -133,6 +133,38 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   color: var(--muted);  /* 保持浅灰色 */
 }
 
+/* Post content: tables & images */
+.readable table{
+  width:100%;
+  border-collapse:collapse;
+  margin:1.5em 0;
+  font-size:0.95rem;
+}
+.readable th,
+.readable td{
+  border:1px solid var(--border);
+  padding:10px;
+  text-align:center;
+}
+.readable th{
+  background:#f7f7f7; /* 浅色模式表头 */
+  color:#111;
+  font-weight:700;
+}
+
+/* 可选：浅色模式隔行底色，增强可读性 */
+.readable tbody tr:nth-child(odd) td{ background:#fafafa; }
+
+/* 文章图片通用样式（替代你文章里的 .center-img 内嵌样式） */
+.readable .center-img{
+  display:block;
+  margin:1.5em auto;
+  max-width:90%;
+  height:auto;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+
 /* Responsive */
 @media(max-width:860px){
   .site-nav{position:absolute;right:0;top:56px;background:#f7f7f7;border-left:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 14px;display:none;flex-direction:column;gap:10px;}
@@ -233,6 +265,25 @@ main {
     --footer-bg: #1e1e1e;  /* 夜间：底部背景 */
     --nav-text: #ffffff;   /* 夜间：导航文字 */
   }
+
+  /* 深色模式下的表格样式 */
+.readable th,
+.readable td{
+  border:1px solid var(--border);
+}
+.readable th{
+  background:#2a2a2a;  /* 深灰表头，不再刺眼 */
+  color:#e0e0e0;
+}
+.readable td{
+  background:#1a1a1a;  /* 可选：给单元格一点底色 */
+  color:#ddd;
+}
+/* 可选：深色模式隔行底色 */
+.readable tbody tr:nth-child(odd) td{ background:#181818; }
+
+/* 深色下图片的投影稍强一点，层次更清晰（可选） */
+.readable .center-img{ box-shadow:0 4px 12px rgba(0,0,0,.5); }
 
   body { background: var(--bg); color: var(--text); }
 
