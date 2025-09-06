@@ -38,34 +38,34 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .site-nav{display:flex;background:var(--header-bg);gap:18px;}
 .site-nav a {
   font-size: 1rem;
-  font-family:Inter, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;/* 或者 monospace，看你想要的风格 */
-  color: var(--nav-text);         /* 改成固定深灰色 */
-  text-decoration: none;         /* 去掉默认下划线 */
+  font-family:Inter, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--nav-text);
+  text-decoration: none;
 }
 .site-nav a.active{font-weight:700;}
 .hamburger{display:none;background:none;border:none;padding:6px;cursor:pointer;}
 .hamburger .bar {
   display:block;
-  width: 1.5em;       /* 宽度跟随字体大小 */
-  height: 0.15em;  /* 高度 = 字体的 1/8，看起来粗细合适 */
+  width: 1.5em;
+  height: 0.15em;
   background:var(--text);
-  margin:0.3em 0;  /* 上下间距 */
+  margin:0.3em 0;
 }
 
 /* 遮罩层 */
 #overlay{
   position: fixed;
-  inset: 0;                     /* 等价于 top:0; right:0; bottom:0; left:0 */
-  background: rgba(0,0,0,.4);   /* 半透明黑 */
-  display: none;                /* 默认隐藏 */
-  z-index: 1005;                /* 盖住正文，但低于菜单 */
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: none;
+  z-index: 1005;
 }
 
 /* Footer */
 .site-footer {
-  border-top: none;                    /* 去掉横线 */
-  background: none !important;         /* 强制无背景 */
-  margin-top: 20px;                    /* 页面内容和底部文字之间留一点距离 */
+  border-top: none;
+  background: none !important;
+  margin-top: 20px;
 }
 
 .site-footer .container {
@@ -74,23 +74,14 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   font-size: 12px;
   font-weight: bold;
   text-align: center;
-  animation: footer-breath 4s ease-in-out infinite; /* 呼吸动画，4秒一循环 */
+  animation: footer-breath 4s ease-in-out infinite;
 }
 
-/* 定义动画 */
+/* Footer 动画 */
 @keyframes footer-breath {
-  0% {
-    opacity: 0.8;
-    color: #8c8c8c;  /* 较浅灰 */
-  }
-  50% {
-    opacity: 1;
-    color: #aaaaaa;  /* 稍微亮一些 */
-  }
-  100% {
-    opacity: 0.8;
-    color: #8c8c8c;  /* 回到较浅灰 */
-  }
+  0% { opacity: 0.8; color: #8c8c8c; }
+  50% { opacity: 1; color: #aaaaaa; }
+  100% { opacity: 0.8; color: #8c8c8c; }
 }
 
 /* Utilities */
@@ -103,11 +94,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 /* Home */
 .full-center{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;text-align:center;}
-.hero {
-  padding: 60px 0;
-  text-align: center;
-}
-
+.hero { padding: 60px 0; text-align: center; }
 .hero-title {
   font-family: Consolas, monospace;
   font-size: 48px;
@@ -116,14 +103,12 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   margin: 0 0 12px 0;
   letter-spacing: 0.05em;
 }
-
 .hero-sep {
   width: 40px;
   border: 0;
   border-top: 1px solid rgba(127,127,127,0.3);
   margin: 12px auto;
 }
-
 .hero-subtitle {
   font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 18px;
@@ -135,23 +120,22 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 /* Page title */
 .page-title {
   font-size: 30px;
-  margin-top: 35px;   /* 标题与导航栏的间距 */
-  margin-bottom: 20px; /* 标题与正文的间距 */
+  margin-top: 35px;
+  margin-bottom: 20px;
   font-weight: 800;
-  color: var(--text);   /* ✅ 浅色深色都能切换 */
+  color: var(--text);
 }
 
 /* Articles */
 .article-list{display:flex;flex-direction:column;gap:28px;}
 .row{display:grid;grid-template-columns:120px 1fr;gap:24px;}
 .year-col {
-  font-family: Consolas, monospace; /* 指定 Consolas 字体 */
-  font-size: 3em;                   /* 保持原来的大小 */
-  font-weight: 400;                 /* 普通粗细，比 700 更细 */
+  font-family: Consolas, monospace;
+  font-size: 3em;
+  font-weight: 400;
   color: #595959;
   padding-top: 6px;
 }
-
 .titles-col{display:flex;flex-direction:column;}
 .article-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--border);color:var(--text);}
 .article-title{font-weight:400;}
@@ -166,11 +150,9 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   letter-spacing:0.05em;
 }
 .post-title{font-size:26px;margin:0 0 8px 0;font-weight:800;color: var(--text);}
-
-/* 单篇文章标题下的日期 */
 .post-title + .muted time {
-  font-size: 14px;      /* 修改成你需要的大小 */
-  color: var(--muted);  /* 保持浅灰色 */
+  font-size: 14px;
+  color: var(--muted);
 }
 
 /* Post content: tables & images */
@@ -187,15 +169,11 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   text-align:center;
 }
 .readable th{
-  background:#f7f7f7; /* 浅色模式表头 */
+  background:#f7f7f7;
   color:#111;
   font-weight:700;
 }
-
-/* 可选：浅色模式隔行底色，增强可读性 */
 .readable tbody tr:nth-child(odd) td{ background:#fafafa; }
-
-/* 文章图片通用样式（替代你文章里的 .center-img 内嵌样式） */
 .readable .center-img{
   display:block;
   margin:1.5em auto;
@@ -207,77 +185,58 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 /* ---------- 移动端优化 ---------- */
 @media (max-width: 860px) {
-  /* 导航栏与 Hero */
-/* 右侧抽屉式菜单 */
+  /* 抽屉菜单 */
   .site-nav{
     position: fixed;
     top: 0;
-    right: -260px;              /* 初始藏到屏外 */
+    right: -260px;
     width: 240px;
     height: 100vh;
     background: var(--header-bg);
-    display: flex;              /* 始终是 flex，不再用 display:none 切换 */
+    display: flex;
     flex-direction: column;
     gap: 16px;
     padding: 20px;
     border-left: 1px solid var(--border);
-    transition: right .3s ease; /* 平滑滑入/滑出 */
-    z-index: 1010;              /* 高于遮罩层 */
+    transition: right .3s ease;
+    z-index: 1010;
   }
-  .site-nav.open{ right: 0; }   /* 展开时滑入 */
-  .hamburger{ display:block; position: relative; z-index: 1020; } /* 确保按钮在遮罩之上 */
+  .site-nav.open{ right: 0; }
+  .hamburger{ display:block; position: relative; z-index: 1020; }
+
   .hero-title { font-size: 28px; letter-spacing: 0.03em; }
   .hero-subtitle { font-size: 14px; }
   .hero-sep { width: 30px; }
 
-  /* 文章列表 */
   .row { display: block; margin-bottom: 24px; }
   .year-col { font-size: 1.5em; margin-bottom: 12px; }
   .titles-col { display: block; }
   .article-item {
     display: flex;
-    justify-content: space-between; /* 标题左，时间右 */
+    justify-content: space-between;
     align-items: center;
     gap: 12px;
     padding: 10px 0;
     border-bottom: 1px dashed var(--border);
   }
-  .article-title {
-    flex: 1;
-    text-align: left;
-  }
-  .article-date {
-    flex-shrink: 0;
-    color: var(--muted);
-  }
+  .article-title { flex: 1; text-align: left; }
+  .article-date { flex-shrink: 0; color: var(--muted); }
 }
 
-/* 小屏手机（例如 iPhone 12/13/14 普通版，宽度 ≤420px） */
+/* 小屏手机（≤420px） */
 @media (max-width: 420px) {
-  .hero-title {
-    font-size: 22px;       /* 主标题更小，避免换行 */
-    letter-spacing: 0.02em;/* 稍微收紧字间距 */
-    margin-bottom: 8px;     /* 标题和分割线间距缩小 */
-  }
-  .hero-subtitle {
-    font-size: 12px;       /* 副标题更小，更精致 */
-    margin-top: 6px;        /* 副标题和分割线间距缩小 */
-  }
-  .hero-sep {
-    width: 24px;           /* 分割线也缩短一点 */
-    margin: 8px auto;       /* 上下间距更紧凑 */
-  }
+  .hero-title { font-size: 22px; letter-spacing: 0.02em; margin-bottom: 8px; }
+  .hero-subtitle { font-size: 12px; margin-top: 6px; }
+  .hero-sep { width: 24px; margin: 8px auto; }
 }
 
-
-/* ---------- Resources (Downloads → 下载) ---------- */
+/* ---------- Resources ---------- */
 .cards {
   display: grid;
   grid-template-columns: repeat( auto-fit, minmax(260px, 1fr) );
   gap: 16px;
   margin-top: 12px;
 }
-
 .card {
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -287,7 +246,6 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   flex-direction: column;
   gap: 10px;
 }
-
 .card-title { font-weight: 700; color: var(--text);}
 .card-meta { color: var(--muted); font-size: 14px; }
 .card a.btn {
@@ -303,18 +261,9 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .card a.btn:hover { background: #efefef; }
 
 /* Sticky footer layout（仅首页启用） */
-html, body {
-  height: 100%;
-}
-
-body.home {
-  display: flex;
-  flex-direction: column;
-}
-
-body.home main {
-  flex: 1; /* 首页主体部分自动撑开，footer 就会始终在底部 */
-}
+html, body { height: 100%; }
+body.home { display: flex; flex-direction: column; }
+body.home main { flex: 1; }
 
 /* 夜间模式 */
 @media (prefers-color-scheme: dark) {
@@ -326,68 +275,30 @@ body.home main {
     --accent: #00e676;
     --link: #64b5f6;
     --border: #333333;
-    --header-bg: #1e1e1e;  /* 夜间：导航背景 */
-    --footer-bg: #1e1e1e;  /* 夜间：底部背景 */
-    --nav-text: #ffffff;   /* 夜间：导航文字 */
+    --header-bg: #1e1e1e;
+    --footer-bg: #1e1e1e;
+    --nav-text: #ffffff;
   }
 
-  /* 深色模式下的表格样式 */
-.readable th,
-.readable td{
-  border:1px solid var(--border);
-}
-.readable th{
-  background:#2a2a2a;  /* 深灰表头，不再刺眼 */
-  color:#e0e0e0;
-}
-.readable td{
-  background:#1a1a1a;  /* 可选：给单元格一点底色 */
-  color:#ddd;
-}
-/* 可选：深色模式隔行底色 */
-.readable tbody tr:nth-child(odd) td{ background:#181818; }
-
-/* 深色下图片的投影稍强一点，层次更清晰（可选） */
-.readable .center-img{ box-shadow:0 4px 12px rgba(0,0,0,.5); }
+  .readable th,.readable td{ border:1px solid var(--border); }
+  .readable th{ background:#2a2a2a; color:#e0e0e0; }
+  .readable td{ background:#1a1a1a; color:#ddd; }
+  .readable tbody tr:nth-child(odd) td{ background:#181818; }
+  .readable .center-img{ box-shadow:0 4px 12px rgba(0,0,0,.5); }
 
   body { background: var(--bg); color: var(--text); }
-
-  /* 这些原本写到了全局，必须放回暗色块里 */
   .site-header { background: var(--header-bg); }
   .site-footer { background: none !important; color: var(--muted); }
-
   .hero-subtitle { color: var(--muted); }
   .article-date { color: var(--muted); }
-
   .card { background: #1c1c1c; border: 1px solid var(--border); }
-  .card a.btn {
-    background: #2c2c2c; border: 1px solid var(--border); color: var(--text);
-  }
+  .card a.btn { background: #2c2c2c; border: 1px solid var(--border); color: var(--text); }
   .card a.btn:hover { background: #333333; }
 
-  .site-footer .container {
-    animation: footer-breath-dark 4s ease-in-out infinite;
-  }
-
+  .site-footer .container { animation: footer-breath-dark 4s ease-in-out infinite; }
   @keyframes footer-breath-dark {
-    0% {
-      opacity: 0.8;
-      color: #888888;  /* 深色背景下浅灰 */
-    }
-    50% {
-      opacity: 1;
-      color: #bbbbbb;  /* 更亮一些 */
-    }
-    100% {
-      opacity: 0.8;
-      color: #888888;
-    }
+    0% { opacity: 0.8; color: #888888; }
+    50% { opacity: 1; color: #bbbbbb; }
+    100% { opacity: 0.8; color: #888888; }
   }
 }
-  
-  /* 移动端下拉菜单：用变量而不是写死浅色 */
-  @media (max-width: 860px) {
-    .site-nav {
-      background: var(--header-bg);
-    }
-  }
