@@ -160,3 +160,38 @@ main {
   flex: 1; /* 主体部分自动撑开，footer 就会始终在底部 */
 }
 
+/* 移动端优化文章列表布局 */
+@media (max-width: 860px) {
+  .row {
+    display: block;
+    margin-bottom: 24px;
+  }
+
+  .year-col {
+    font-size: 1.5em;
+    margin-bottom: 12px;
+  }
+
+  .titles-col {
+    display: block;
+  }
+
+  .article-item {
+    display: flex;
+    justify-content: space-between; /* 标题左，时间右 */
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  .article-title {
+    flex: 1;
+    text-align: left;
+  }
+
+  .article-date {
+    flex-shrink: 0;
+    color: var(--muted);
+  }
+}
