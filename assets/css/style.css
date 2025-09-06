@@ -198,13 +198,13 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
     top: 0;
     right: -100%;                /* 初始完全移出屏幕 */
     min-width: max-content;      /* 宽度随文字自适应 */
-    padding: 20px 32px;          /* 左右留边距，避免贴边 */
+    padding: 56px 32px 20px;          /* 左右留边距，避免贴边 */
     height: 100vh;
     background: var(--header-bg);
     display: flex;
     flex-direction: column;
     gap: 16px;
-    border-left: 1px solid var(--border);
+    /*border-left: 1px solid var(--border);*/
     transition: right .3s ease;
     z-index: 3100;               /* 抽屉 > header > 遮罩 */
   }
