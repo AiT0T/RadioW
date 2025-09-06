@@ -94,7 +94,14 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 /* Articles */
 .article-list{display:flex;flex-direction:column;gap:28px;}
 .row{display:grid;grid-template-columns:120px 1fr;gap:24px;}
-.year-col{color:#595959;font-weight:700;font-size:2em;padding-top:6px;}
+.year-col {
+  font-family: Consolas, monospace; /* 指定 Consolas 字体 */
+  font-size: 3em;                   /* 保持原来的大小 */
+  font-weight: 400;                 /* 普通粗细，比 700 更细 */
+  color: #595959;
+  padding-top: 6px;
+}
+
 .titles-col{display:flex;flex-direction:column;}
 .article-item{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px dashed var(--border);color:var(--text);}
 .article-title{font-weight:400;}
