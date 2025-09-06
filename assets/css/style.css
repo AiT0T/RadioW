@@ -179,19 +179,46 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   box-shadow:0 4px 12px rgba(0,0,0,.1);
 }
 
-/* Responsive */
-@media(max-width:860px){
-  .site-nav{position:absolute;right:0;top:56px;background:#f7f7f7;border-left:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 14px;display:none;flex-direction:column;gap:10px;}
-  .site-nav.open{display:flex;}
-  .hamburger{display:block;}
-  .hero-title {
-    font-size: 28px;   /* 手机屏幕更小一点 */
+/* ---------- 移动端优化 ---------- */
+@media (max-width: 860px) {
+  /* 导航栏与 Hero */
+  .site-nav {
+    position: absolute;
+    right: 0;
+    top: 56px;
+    background: var(--header-bg);
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
   }
-  .hero-subtitle {
-    font-size: 14px;   /* 手机副标题更精致 */
+  .site-nav.open { display: flex; }
+  .hamburger { display: block; }
+  .hero-title { font-size: 28px; }
+  .hero-subtitle { font-size: 14px; }
+  .hero-sep { width: 30px; }
+
+  /* 文章列表 */
+  .row { display: block; margin-bottom: 24px; }
+  .year-col { font-size: 1.5em; margin-bottom: 12px; }
+  .titles-col { display: block; }
+  .article-item {
+    display: flex;
+    justify-content: space-between; /* 标题左，时间右 */
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
   }
-    .hero-sep {
-    width: 30px;       /* 手机分割线更短 */
+  .article-title {
+    flex: 1;
+    text-align: left;
+  }
+  .article-date {
+    flex-shrink: 0;
+    color: var(--muted);
   }
 }
 
@@ -236,43 +263,6 @@ html, body {
 
 main {
   flex: 1; /* 主体部分自动撑开，footer 就会始终在底部 */
-}
-
-/* 移动端优化文章列表布局 */
-@media (max-width: 860px) {
-  .row {
-    display: block;
-    margin-bottom: 24px;
-  }
-
-  .year-col {
-    font-size: 1.5em;
-    margin-bottom: 12px;
-  }
-
-  .titles-col {
-    display: block;
-  }
-
-  .article-item {
-    display: flex;
-    justify-content: space-between; /* 标题左，时间右 */
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px dashed var(--border);
-  }
-
-  .article-title {
-    flex: 1;
-    text-align: left;
-  }
-
-  .article-date {
-    flex-shrink: 0;
-    color: var(--muted);
-  }
-  
 }
 
 /* 夜间模式 */
