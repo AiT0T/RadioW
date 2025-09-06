@@ -54,9 +54,9 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 /* Footer */
 .site-footer {
-  border-top: none;                   /* 去掉横线 */
-  background: var(--footer-bg);       /* 去掉背景 */
-  margin-top: 20px;                   /* 页面内容和底部文字之间留一点距离 */
+  border-top: none;                    /* 去掉横线 */
+  background: none !important;         /* 强制无背景 */
+  margin-top: 20px;                    /* 页面内容和底部文字之间留一点距离 */
 }
 
 .site-footer .container {
@@ -238,7 +238,7 @@ main {
 
   /* 这些原本写到了全局，必须放回暗色块里 */
   .site-header { background: var(--header-bg); }
-  .site-footer { background: var(--footer-bg); color: var(--muted); }
+  .site-footer { background: none !important; color: var(--muted); }
 
   .hero-subtitle { color: var(--muted); }
   .article-date { color: var(--muted); }
