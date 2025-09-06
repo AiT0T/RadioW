@@ -223,19 +223,29 @@ main {
 /* 夜间模式 */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121212;      /* 背景 */
-    --text: #e0e0e0;    /* 正文颜色 */
-    --muted: #aaaaaa;   /* 浅灰文字 */
-    --brand: #ffffff;   /* Logo 文字 */
-    --accent: #00e676;  /* 高亮绿色 */
-    --link: #64b5f6;    /* 链接颜色 */
-    --border: #333333;  /* 分割线颜色 */
+    --bg: #121212;
+    --text: #e0e0e0;     /* 正文亮灰 */
+    --muted: #b0b0b0;    /* 浅灰，比正文淡 */
+    --brand: #ffffff;
+    --accent: #00e676;
+    --link: #64b5f6;
+    --border: #333333;
   }
 
   body {
     background: var(--bg);
     color: var(--text);
   }
+
+  .hero-subtitle {
+    color: var(--muted);  /* 副标题浅灰 */
+  }
+
+  .article-date {
+    color: var(--muted);  /* 日期浅灰 */
+  }
+}
+
 
   .site-header {
     background: #1e1e1e;
