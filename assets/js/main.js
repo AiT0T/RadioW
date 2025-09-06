@@ -2,32 +2,54 @@
 (function(){
   const nav = document.getElementById('site-nav');
   const btn = document.getElementById('hamburger');
-  if(btn && nav){
+  const overlay = document.getElementById('overlay');
+
+  if(btn && nav && overlay){
+    // 点击按钮 → 开关菜单 + 遮罩
     btn.addEventListener('click', (e)=>{
-      e.stopPropagation(); // 阻止冒泡，避免立刻触发 document 的点击事件
+      e.stopPropagation(); // 避免冒泡触发文档点击
       const isOpen = nav.classList.toggle('open');
       btn.setAttribute('aria-expanded', String(isOpen));
+      overlay.style.display = isOpen ? 'block' : 'none';
     });
 
-    // 点击页面空白 → 自动收起
+    // 点击遮罩 → 关闭
+    overlay.addEventListener('click', ()=>{
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      overlay.style.display = 'none';
+    });
+
+    // 点击菜单外任意区域 → 关闭（兜底）
     document.addEventListener('click', (e)=>{
       if (!nav.contains(e.target) && !btn.contains(e.target)) {
         nav.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
+        overlay.style.display = 'none';
       }
     });
 
-    // 点击菜单链接 → 自动收起
-    const links = nav.querySelectorAll('a');
-    links.forEach(link=>{
+    // 点击菜单里的链接 → 关闭
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link=>{
       link.addEventListener('click', ()=>{
         nav.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
+        overlay.style.display = 'none';
       });
+    });
+
+    // 视口从手机切回桌面时，确保状态复位（可选）
+    window.addEventListener('resize', ()=>{
+      if (window.innerWidth > 860) {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        overlay.style.display = 'none';
+      }
     });
   }
 
-  // active link
+  // active link（保持你原有逻辑）
   const links = (nav ? nav.querySelectorAll('a') : []);
   links.forEach(a=>{
     if (location.pathname.endsWith(a.getAttribute('href'))) {
@@ -35,7 +57,7 @@
     }
   });
 
-  // resources
+  // resources（保持你原有逻辑）
   const container = document.getElementById('downloads');
   if(container){
     const items = (window.BA8AKA_DOWNLOADS || []);
@@ -63,6 +85,7 @@
     });
   }
 })();
+
 
 // 首页标题分割线宽度
 document.addEventListener("DOMContentLoaded", () => {
