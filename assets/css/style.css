@@ -185,18 +185,18 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 /* ---------- 移动端优化 ---------- */
 @media (max-width: 860px) {
-  /* 抽屉菜单 */
+  /* 右侧抽屉式菜单 */
   .site-nav{
     position: fixed;
     top: 0;
-    right: -260px;
-    width: 240px;
+    right: -100%;             /* 初始藏到屏外 */
+    min-width: max-content;   /* 宽度自适应文字 */
+    padding: 20px 32px;       /* 左右留边距 */
     height: 100vh;
     background: var(--header-bg);
-    display: flex;
+    display: flex;            /* 始终 flex */
     flex-direction: column;
     gap: 16px;
-    padding: 20px;
     border-left: 1px solid var(--border);
     transition: right .3s ease;
     z-index: 1010;
@@ -208,6 +208,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   .hero-subtitle { font-size: 14px; }
   .hero-sep { width: 30px; }
 
+  /* 文章列表 */
   .row { display: block; margin-bottom: 24px; }
   .year-col { font-size: 1.5em; margin-bottom: 12px; }
   .titles-col { display: block; }
