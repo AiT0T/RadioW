@@ -65,6 +65,13 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   font-size: 12px;        /* 设置 12px 大小 */
   font-weight: bold;      /* 加粗文字 */
   text-align: center;     /* 居中显示 */
+  animation: footer-breath 3s ease-in-out infinite; /* 呼吸动画 */
+}
+/* 定义动画 */
+@keyframes footer-breath {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.6; }
 }
 
 /* Utilities */
@@ -272,15 +279,18 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 }
 .card a.btn:hover { background: #efefef; }
 
-/* Sticky footer layout */
+/* Sticky footer layout（仅首页启用） */
 html, body {
   height: 100%;
+}
+
+body.home {
   display: flex;
   flex-direction: column;
 }
 
-main {
-  flex: 1; /* 主体部分自动撑开，footer 就会始终在底部 */
+body.home main {
+  flex: 1; /* 首页主体部分自动撑开，footer 就会始终在底部 */
 }
 
 /* 夜间模式 */
