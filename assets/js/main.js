@@ -1,88 +1,97 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const nav = document.getElementById("site-nav");
-  const btn = document.getElementById("hamburger");
-  let overlay = document.getElementById("overlay");
-  if (!overlay) {
-    overlay = document.createElement("div");
-    overlay.id = "overlay";
-    document.body.appendChild(overlay);
-  }
+// Hamburger toggle + active link highlight + resources builder
+(function(){
+  const nav = document.getElementById('site-nav');
+  const btn = document.getElementById('hamburger');
+  const overlay = document.getElementById('overlay');
 
-  if (btn && nav && overlay) {
-    btn.addEventListener("click", (e) => {
+  if(btn && nav && overlay){
+    // 点击按钮 → 开关菜单 + 遮罩
+    btn.addEventListener('click', (e)=>{
       e.stopPropagation();
-      const isOpen = nav.classList.toggle("open");
-      btn.setAttribute("aria-expanded", String(isOpen));
-      overlay.style.display = isOpen ? "block" : "none";
+      const isOpen = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      overlay.style.display = isOpen ? 'block' : 'none';
     });
 
-    overlay.addEventListener("click", () => {
-      nav.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
-      overlay.style.display = "none";
+    // 点击遮罩 → 关闭
+    overlay.addEventListener('click', ()=>{
+      nav.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      overlay.style.display = 'none';
     });
 
-    document.addEventListener("click", (e) => {
+    // 点击菜单外任意区域 → 关闭
+    document.addEventListener('click', (e)=>{
       if (!nav.contains(e.target) && !btn.contains(e.target)) {
-        nav.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-        overlay.style.display = "none";
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        overlay.style.display = 'none';
       }
     });
 
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-        overlay.style.display = "none";
+    // 点击菜单里的链接 → 关闭（允许跳转）
+    const navLinks = nav.querySelectorAll('a');
+    navLinks.forEach(link=>{
+      link.addEventListener('click', ()=>{
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        overlay.style.display = 'none';
+        // ✅ 保持正常跳转，不再阻止默认行为
       });
     });
 
-    window.addEventListener("resize", () => {
+    // 视口切换 → 保证复位
+    window.addEventListener('resize', ()=>{
       if (window.innerWidth > 860) {
-        nav.classList.remove("open");
-        btn.setAttribute("aria-expanded", "false");
-        overlay.style.display = "none";
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        overlay.style.display = 'none';
       }
     });
-  } else {
-    console.warn("[BA8AKA] nav/btn/overlay 缺失：", { nav: !!nav, btn: !!btn, overlay: !!overlay });
   }
 
-  // 保留你的 active link & 资源卡片 & 首页分割线逻辑
-  const links = nav ? nav.querySelectorAll("a") : [];
-  links.forEach((a) => {
-    if (location.pathname.endsWith(a.getAttribute("href"))) a.classList.add("active");
+  // active link
+  const links = (nav ? nav.querySelectorAll('a') : []);
+  links.forEach(a=>{
+    if (location.pathname.endsWith(a.getAttribute('href'))) {
+      a.classList.add('active');
+    }
   });
 
-  const container = document.getElementById("downloads");
-  if (container) {
-    const items = window.BA8AKA_DOWNLOADS || [];
-    items.forEach((it) => {
-      const card = document.createElement("div");
-      card.className = "card";
+  // resources
+  const container = document.getElementById('downloads');
+  if(container){
+    const items = (window.BA8AKA_DOWNLOADS || []);
+    items.forEach(it=>{
+      const card = document.createElement('div');
+      card.className = 'card';
 
-      const title = document.createElement("div");
-      title.className = "card-title";
-      title.textContent = it.title || "下载项";
+      const title = document.createElement('div');
+      title.className = 'card-title';
+      title.textContent = it.title || '下载项';
 
-      const meta = document.createElement("div");
-      meta.className = "card-meta";
-      const ext = it.file.split(".").pop().toUpperCase();
-      meta.innerHTML = ext + ' · <span class="digits">' + (it.size || "未知大小") + "</span>";
+      const meta = document.createElement('div');
+      meta.className = 'card-meta';
+      const ext = it.file.split('.').pop().toUpperCase();
+      meta.innerHTML = ext + ' · <span class="digits">' + (it.size || '未知大小') + '</span>';
 
-      const link = document.createElement("a");
-      link.className = "btn";
+      const link = document.createElement('a');
+      link.className = 'btn';
       link.href = it.file;
-      link.textContent = "下载";
-      link.setAttribute("download", "");
+      link.textContent = '下载';
+      link.setAttribute('download', '');
 
       card.append(title, meta, link);
       container.append(card);
     });
   }
+})();
 
+// 首页标题分割线宽度
+document.addEventListener("DOMContentLoaded", () => {
   const title = document.querySelector(".hero-title");
   const hr = document.querySelector(".hero-sep");
-  if (title && hr) hr.style.width = title.offsetWidth + "px";
+  if (title && hr) {
+    hr.style.width = title.offsetWidth + "px";
+  }
 });
