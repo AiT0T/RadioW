@@ -77,19 +77,33 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 /* Home */
 .full-center{min-height:calc(100vh - 64px);display:flex;align-items:center;justify-content:center;text-align:center;}
-.hero{padding:40px 0;}
-.hero-title{font-family:"SimSun","Songti SC","STSong",serif;font-size:clamp(28px,5vw,48px);margin:0;font-weight:800;}
-.hero-sep {
-  width: 60%;              /* 分割线长度，可改成 50% 或具体像素值 */
-  max-width: 400px;        /* 限制最大宽度，避免太长 */
-  border: 0;
-  border-top: 1px solid #aaa; /* 更细更淡 */
-  margin: 8px auto;
+.hero {
+  padding: 60px 0;
+  text-align: center;
 }
+
+.hero-title {
+  font-family: Consolas, monospace;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 12px 0;
+  letter-spacing: 0.05em;
+}
+
+.hero-sep {
+  width: 40px;
+  border: 0;
+  border-top: 1px solid rgba(127,127,127,0.3);
+  margin: 12px auto;
+}
+
 .hero-subtitle {
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 18px;
-  margin-top: 6px;             /* 靠近分割线 */
   color: var(--muted);
+  margin-top: 8px;
+  font-weight: 400;
 }
 
 /* Page title */
@@ -170,6 +184,15 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   .site-nav{position:absolute;right:0;top:56px;background:#f7f7f7;border-left:1px solid var(--border);border-bottom:1px solid var(--border);padding:10px 14px;display:none;flex-direction:column;gap:10px;}
   .site-nav.open{display:flex;}
   .hamburger{display:block;}
+  .hero-title {
+    font-size: 28px;   /* 手机屏幕更小一点 */
+  }
+  .hero-subtitle {
+    font-size: 14px;   /* 手机副标题更精致 */
+  }
+    .hero-sep {
+    width: 30px;       /* 手机分割线更短 */
+  }
 }
 
 /* ---------- Resources (Downloads → 下载) ---------- */
@@ -249,6 +272,7 @@ main {
     flex-shrink: 0;
     color: var(--muted);
   }
+  
 }
 
 /* 夜间模式 */
