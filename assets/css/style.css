@@ -208,3 +208,56 @@ main {
     color: var(--muted);
   }
 }
+
+/* 默认浅色（已经有了，不需要动） */
+:root {
+  --bg: #fff;
+  --text: #111;
+  --muted: #7f7f7f;
+  --brand: #0a0a0a;
+  --accent: #00c853;
+  --link: #0b57d0;
+  --border: #e6e6e6;
+}
+
+/* 夜间模式 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #121212;      /* 背景 */
+    --text: #e0e0e0;    /* 正文颜色 */
+    --muted: #aaaaaa;   /* 浅灰文字 */
+    --brand: #ffffff;   /* Logo 文字 */
+    --accent: #00e676;  /* 高亮绿色 */
+    --link: #64b5f6;    /* 链接颜色 */
+    --border: #333333;  /* 分割线颜色 */
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .site-header {
+    background: #1e1e1e;
+  }
+
+  .site-footer {
+    background: none;
+    color: var(--muted);
+  }
+
+  .card {
+    background: #1c1c1c;
+    border: 1px solid var(--border);
+  }
+
+  .card a.btn {
+    background: #2c2c2c;
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  .card a.btn:hover {
+    background: #333333;
+  }
+}
