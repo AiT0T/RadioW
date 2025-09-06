@@ -23,8 +23,24 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .container{width:92%;max-width:760px;margin:0 auto;}
 
 /* Header/Nav */
-.site-header{position:sticky;top:0;z-index:1000;background:var(--header-bg);border-bottom:none;}
+/* 让 header 的层级高于遮罩；抽屉在 header 之上 */
+.site-header{
+  position:sticky;
+  top:0;
+  z-index: 3000;                  /* ↑ 提高 */
+  background:var(--header-bg);
+  border-bottom:none;
+}
+/* 遮罩层在 header 之下（但在正文之上）*/
+#overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: none;
+  z-index: 2900;                  /* ↓ 比 header 低 */
+}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
+
 .logo-text{font-family:monospace;font-size:1.125rem;font-weight:700;color:var(--nav-text);display:inline-flex;align-items:center;gap: 8px;}
 .logo-text .cursor{
   display:inline-block;
@@ -50,15 +66,6 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   height: 0.15em;
   background:var(--text);
   margin:0.3em 0;
-}
-
-/* 遮罩层 */
-#overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.4);
-  display: none;
-  z-index: 1005;
 }
 
 /* Footer */
@@ -185,30 +192,31 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 
 /* ---------- 移动端优化 ---------- */
 @media (max-width: 860px) {
-  /* 右侧抽屉式菜单 */
+  /* 右侧抽屉式菜单（自适应文字宽度 + 留边） */
   .site-nav{
     position: fixed;
     top: 0;
-    right: -100%;             /* 初始藏到屏外 */
-    min-width: max-content;   /* 宽度自适应文字 */
-    padding: 20px 32px;       /* 左右留边距 */
+    right: -100%;                /* 初始完全移出屏幕 */
+    min-width: max-content;      /* 宽度随文字自适应 */
+    padding: 20px 32px;          /* 左右留边距，避免贴边 */
     height: 100vh;
     background: var(--header-bg);
-    display: flex;            /* 始终 flex */
+    display: flex;
     flex-direction: column;
     gap: 16px;
     border-left: 1px solid var(--border);
     transition: right .3s ease;
-    z-index: 1010;
+    z-index: 3100;               /* 抽屉 > header > 遮罩 */
   }
   .site-nav.open{ right: 0; }
-  .hamburger{ display:block; position: relative; z-index: 1020; }
 
+  /* 汉堡按钮要永远在最上面，防止被遮罩挡住 */
+  .hamburger{ display:block; position: relative; z-index: 3200; }
+
+  /* 下面是你原有的移动端排版，保持不变 */
   .hero-title { font-size: 28px; letter-spacing: 0.03em; }
   .hero-subtitle { font-size: 14px; }
   .hero-sep { width: 30px; }
-
-  /* 文章列表 */
   .row { display: block; margin-bottom: 24px; }
   .year-col { font-size: 1.5em; margin-bottom: 12px; }
   .titles-col { display: block; }
