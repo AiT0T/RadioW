@@ -262,7 +262,13 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .card-title {
   font-weight: 700;
   color: var(--text);
-  font-size: 15px;             /* 稍微小一点 */
+  text-decoration: none;     /* 去掉下划线 */
+  transition: color 0.2s ease;
+}
+
+.card-title:hover {
+  color: var(--link);        /* 悬停时变成主题色 */
+  text-decoration: none;     /* 确保不会出现下划线 */
 }
 
 .card-meta {
