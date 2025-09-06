@@ -35,7 +35,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   animation: blink 1s steps(1,end) infinite;
 }
 @keyframes blink{50%{opacity:0;}}
-.site-nav{display:flex;gap:18px;}
+.site-nav{display:flex;background:var(--header-bg);gap:18px;}
 .site-nav a {
   font-size: 1rem;
   font-family:Inter, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;/* 或者 monospace，看你想要的风格 */
