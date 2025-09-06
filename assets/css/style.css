@@ -11,6 +11,7 @@ html,body{margin:0;padding:0;}
   --border: #e6e6e6;
   --header-bg: #f7f7f7;   /* 浅色模式下导航背景 */
   --footer-bg: #f7f7f7;   /* 浅色模式下底部背景 */
+  --nav-text: #222222;    /* 浅色模式导航文字 */
 }
 
 body{
@@ -22,9 +23,9 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .container{width:92%;max-width:760px;margin:0 auto;}
 
 /* Header/Nav */
-.site-header{position:sticky;top:0;z-index:1000;background:#f7f7f7;border-bottom:none;}
+.site-header{position:sticky;top:0;z-index:1000;background:var(--header-bg);border-bottom:none;}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0;}
-.logo-text{font-family:monospace;font-size:1.125rem;font-weight:700;color:var(--brand);display:inline-flex;align-items:center;gap: 8px;}
+.logo-text{font-family:monospace;font-size:1.125rem;font-weight:700;color:var(--nav-text);display:inline-flex;align-items:center;gap: 8px;}
 .logo-text .cursor{
   display:inline-block;
   background: var(--accent);
@@ -38,8 +39,8 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .site-nav a {
   font-size: 1rem;
   font-family:Inter, -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", Helvetica, Arial, sans-serif;/* 或者 monospace，看你想要的风格 */
-  color: #222222;          /* 改成固定深灰色 */
-  text-decoration: none;   /* 去掉默认下划线 */
+  color: var(--nav-text);         /* 改成固定深灰色 */
+  text-decoration: none;         /* 去掉默认下划线 */
 }
 .site-nav a.active{font-weight:700;}
 .hamburger{display:none;background:none;border:none;padding:6px;cursor:pointer;}
@@ -88,7 +89,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .hero-subtitle {
   font-size: 18px;
   margin-top: 6px;             /* 靠近分割线 */
-  color: #222;
+  color: var(--muted);
 }
 
 /* Page title */
@@ -97,6 +98,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   margin-top: 35px;   /* 标题与导航栏的间距 */
   margin-bottom: 20px; /* 标题与正文的间距 */
   font-weight: 800;
+  color: var(--text);   /* ✅ 浅色深色都能切换 */
 }
 
 /* Articles */
@@ -123,7 +125,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   line-height:1.9;
   letter-spacing:0.05em;
 }
-.post-title{font-size:26px;margin:0 0 8px 0;font-weight:800;}
+.post-title{font-size:26px;margin:0 0 8px 0;font-weight:800;color: var(--text);}
 
 /* 单篇文章标题下的日期 */
 .post-title + .muted time {
@@ -156,7 +158,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   gap: 10px;
 }
 
-.card-title { font-weight: 700; }
+.card-title { font-weight: 700; color: var(--text);}
 .card-meta { color: var(--muted); font-size: 14px; }
 .card a.btn {
   align-self: flex-start;
@@ -240,6 +242,7 @@ main {
     --border: #333333;
     --header-bg: #1e1e1e;  /* 夜间模式下导航背景 */
     --footer-bg: #1e1e1e;  /* 夜间模式下底部背景 */
+    --nav-text: #ffffff;   /* 深色模式导航文字 */
   }
 
   body {
