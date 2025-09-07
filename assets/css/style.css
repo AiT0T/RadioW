@@ -16,6 +16,8 @@ html,body{margin:0;padding:0;}
 
 body{
   font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+  padding-bottom: 50px;  /* 给页面底部留出空间 */
+  flex: 1;
   background:var(--bg);color:var(--text);line-height:1.8;letter-spacing:0.05em;
 }
 a{color:var(--link);text-decoration:none;}
@@ -72,10 +74,9 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 .site-footer {
   border-top: none;
   background: none !important;
-  margin-top: 20px;
-  position: absolute;
+  margin-top: auto;;
+  position: relative;
   bottom: 0;
-  width: 100%;
   text-align: center;
   padding: 10px 0;
 }
@@ -298,7 +299,11 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 }
 
 /* Sticky footer layout（仅首页启用） */
-html, body { height: 100%; }
+html, body {
+  height: 100%;  /* 让页面的高度为 100% */
+  display: flex;
+  flex-direction: column;
+}
 body.home { display: flex; flex-direction: column; }
 body.home main { flex: 1; }
 
@@ -408,6 +413,8 @@ body.home main { flex: 1; }
 
   .footer-sep {
     width: 92%;            /* 确保与正文一致 */
+    margin: 20px auto;
+    border-top: 1px solid #e6e6e6;
   }
 }
 
