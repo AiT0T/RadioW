@@ -351,15 +351,19 @@ body.home main { flex: 1; }
   flex-direction: column;
   gap: 12px;
   transition: box-shadow 0.3s ease-in-out;
+  text-decoration: none; /* 移除下划线 */
+  color: inherit; /* 保持文字颜色一致 */
+  display: block; /* 确保 a 标签扩展至整个区域 */
 }
 
 .tool-item:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f0f0f0; /* 添加悬停效果 */
 }
 
 .tool-title {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   display: flex;
   align-items: center;
 }
@@ -370,12 +374,12 @@ body.home main { flex: 1; }
 }
 
 .tool-desc {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--muted);
 }
 
 .tool-link {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--link);
   text-decoration: none;
