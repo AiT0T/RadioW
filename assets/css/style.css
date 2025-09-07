@@ -73,6 +73,11 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   border-top: none;
   background: none !important;
   margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
 }
 
 .site-footer .container {
