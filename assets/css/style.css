@@ -15,9 +15,12 @@ html,body{margin:0;padding:0;}
 }
 
 body{
+  display: flex;
+  flex-direction: column;
+  flex: 1;                 /* 让内容区域自适应剩余空间 */
+  padding-bottom: 50px;    /* 给底部留出足够空间 */
   font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
   padding-bottom: 50px;  /* 给页面底部留出空间 */
-  flex: 1;
   background:var(--bg);color:var(--text);line-height:1.8;letter-spacing:0.05em;
 }
 a{color:var(--link);text-decoration:none;}
@@ -236,6 +239,13 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
   }
   .article-title { flex: 1; text-align: left; }
   .article-date { flex-shrink: 0; color: var(--muted); }
+  body {
+    padding-bottom: 50px;  /* 手机端底部留白 */
+  }
+
+  .site-footer {
+    margin-top: auto;  /* 保证footer自动吸附底部 */
+  }
 }
 
 /* 小屏手机（≤420px） */
@@ -301,6 +311,7 @@ a:hover{ text-decoration:none; }   /* ← 已取消下划线 */
 /* Sticky footer layout（仅首页启用） */
 html, body {
   height: 100%;  /* 让页面的高度为 100% */
+  margin: 0;
   display: flex;
   flex-direction: column;
 }
