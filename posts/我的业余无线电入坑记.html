@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../assets/css/style.css">
   <title>我的业余无线电入坑记</title>
+     <!-- 引入 Waline 样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
 </head>
 <body>
 <header class="site-header">
@@ -49,9 +51,12 @@
 
   <p>如果你也是刚入坑的，或者已经是老火腿了，都欢迎来交流。毕竟玩无线电，最开心的还是“通上了”的那一刻。</p>
 
-  <hr class="soft">
 
-  <p><strong>73！这里是 BA8AKA，抛个砖，等友台们来聊。</strong></p>
+  <p><strong>73！这里是 BA8AKA，抛个砖，等友台们来聊。</strong></p><br
+
+
+    <!-- 评论区容器 -->
+<div id="waline"></div>
 </main>
 
 <footer class="site-footer">
@@ -60,6 +65,20 @@
   </div>
 </footer>
 <script src="../assets/js/main.js" defer></script>
+
+<!-- 引入 Waline JS -->
+  <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+  <script>
+    Waline.init({
+      el: '#waline',                     // 评论区容器
+      serverURL: 'https://ba8aka-git-main-ait0ts-projects.vercel.app',  // ← 这里换成你的 Waline 服务端地址
+      path: window.location.pathname,    // 根据文章路径区分评论
+      comment: true,                     // 开启评论
+      reaction: false,                    // 关闭表情反应
+      dark: 'auto',                      // 自动跟随系统主题
+      login: 'enable'                    // 启用匿名/游客评论
+    });
+  </script>
 <div id="overlay"></div>
 </body>
 </html>

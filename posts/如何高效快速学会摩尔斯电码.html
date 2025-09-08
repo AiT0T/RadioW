@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../assets/css/style.css">
   <title>如何高效快速学会摩尔斯电码</title>
+
+   <!-- 引入 Waline 样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
 </head>
 <body>
 <header class="site-header">
@@ -99,8 +102,10 @@
   <p>学习摩尔斯电码并不只是掌握一门技能，更是融入 HAM 文化的一种方式。记住：不要死记硬背，不要贪快，要用科学方法反复听、练、用。只要坚持，你一定能在电波的世界里，用“滴答声”与全球的朋友顺畅交流。</p>
 
   <p><strong>CQ CQ CQ DE BA8AKA K</strong><br>
-  （呼叫结束，期待你也能早日熟练 CW！）</p>
-  <hr class="soft">
+  （呼叫结束，期待你也能早日熟练 CW！）</p><br
+
+  <!-- 评论区容器 -->
+<div id="waline"></div>
 </main>
 
 <footer class="site-footer">
@@ -109,6 +114,20 @@
   </div>
 </footer>
 <script src="../assets/js/main.js" defer></script>
+
+<!-- 引入 Waline JS -->
+  <script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+  <script>
+    Waline.init({
+      el: '#waline',                     // 评论区容器
+      serverURL: 'https://ba8aka-git-main-ait0ts-projects.vercel.app',  // ← 这里换成你的 Waline 服务端地址
+      path: window.location.pathname,    // 根据文章路径区分评论
+      comment: true,                     // 开启评论
+      reaction: false,                    // 关闭表情反应
+      dark: 'auto',                      // 自动跟随系统主题
+      login: 'enable'                    // 启用匿名/游客评论
+    });
+  </script>
 <div id="overlay"></div>
 </body>
 </html>
