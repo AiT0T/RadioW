@@ -522,7 +522,7 @@ footer .container {
 
 .article-year {
   font-family: Consolas, monospace;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 400;
   color: #595959;
   line-height: 1;
@@ -567,6 +567,8 @@ footer .container {
 }
 
 .article-date {
+  font-size: 1.1em;
+  opacity: 0.6;
   color: var(--muted);
   min-width: 90px;
   text-align: right;
