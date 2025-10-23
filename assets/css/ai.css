@@ -1,0 +1,116 @@
+/* ai.css - 专用于 AI研学 页面。保持与全站 style.css 一致的容器和标题体系 */
+
+/* 区块间距 */
+.section { margin: 24px 0 60px; }
+
+/* 二级标题（与站点风格统一） */
+.section h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* ===============================
+   AI 时间线（左侧竖虚线 + 绿色圆点）
+   通过统一变量确保“线穿圆心”
+   =============================== */
+.ai-list{
+  --line-x: 10px;               /* 竖线相对 .ai-list 内容盒左边的偏移 */
+  --pad-left: 42px;             /* 整体为线与圆点预留的左侧内边距 */
+  position: relative;
+  padding-left: var(--pad-left);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.ai-list::before{
+  content:"";
+  position:absolute;
+  left: var(--line-x);          /* 竖虚线位置（与变量一致） */
+  top: 0;
+  bottom: 0;
+  border-left: 2px dashed #ddd;
+}
+
+.ai-item{
+  position: relative;           /* 圆点用本元素作为定位参考 */
+  padding-bottom: 18px;
+  border-bottom: 1px dashed #e5e5e5; /* 每条之间的横虚线 */
+}
+.ai-item:last-child{ border-bottom: none; }
+
+/* 圆点：以同一参考线为中心，计算到 .ai-item 的相对位置
+   公式：圆点 left = 竖线位置 var(--line-x) - 左侧内边距 var(--pad-left) - 圆点半径(6px) */
+.ai-item::before{
+  content:"";
+  position:absolute;
+  left: calc(var(--line-x) - var(--pad-left) - 6px);
+  top: 4px;
+  width: 12px; height: 12px;
+  border-radius:50%;
+  background: var(--accent);
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 1px var(--accent);
+  z-index: 1;
+}
+
+/* 标题/摘要上下排布，两端对齐 */
+.ai-item h3{
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.ai-item h3 a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color .2s;
+}
+.ai-item h3 a:hover {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.ai-item p{
+  margin: 0;
+  color: #555;
+  line-height: 1.75;
+  font-size: .95rem;
+  text-align: justify;
+}
+
+/* ===============================
+   工具栅格（与你资源卡片风格接近）
+   =============================== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+.tool-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--text);
+  background: #fff;
+  transition: box-shadow .2s, background-color .2s;
+}
+.tool-item:hover { box-shadow: 0 4px 12px rgba(0,0,0,.05); background: #fafafa; }
+.tool-item strong { display:block; margin-bottom: 6px; }
+.tool-item span { color: var(--muted); font-size: 0.92rem; }
+
+/* ===============================
+   夜间模式微调
+   =============================== */
+@media (prefers-color-scheme: dark){
+  .ai-list::before{ border-left-color:#333; }
+  .ai-item{ border-bottom-color:#333; }
+  .ai-item p{ color: var(--muted); }
+  .ai-item::before{
+    border-color: var(--header-bg);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .tool-item{ background: var(--header-bg); border-color: var(--border); }
+  .tool-item:hover{ background:#1f1f1f; }
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="color-scheme" content="light dark">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI 提示词工程入门 | BA8AKA</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo-text" href="../index.html">
+      <span class="logo-word">BA8AKA</span><span class="cursor"></span>
+    </a>
+    <nav class="site-nav" id="site-nav">
+      <a href="../articles.html">无线电</a>
+      <a href="../ai.html" class="active">AI研学</a>
+      <a href="../resources.html">资源</a>
+      <a href="../tools.html">工具</a>
+      <a href="../about.html">关于我</a>
+    </nav>
+  </div>
+</header>
+
+<main class="readable pad-y container">
+  <h1 class="post-title">AI 提示词工程入门</h1>
+  <p class="muted"><time datetime="2025-10-23">2025年10月23日</time></p>
+
+  <p>提示词工程（Prompt Engineering）是让 AI 模型理解你意图的关键环节。通过精心设计的提示词，我们可以让模型输出更精准、更具创造力的内容。</p>
+
+  <h2>什么是提示词工程？</h2>
+  <p>提示词不仅仅是“指令”，而是一种与模型对话的语言。优秀的提示词会明确任务、设定风格、给出上下文，使 AI 能在正确的语境中生成结果。</p>
+
+  <h2>编写提示词的核心技巧</h2>
+  <ul>
+    <li><strong>清晰具体：</strong>明确定义目标与输出格式。</li>
+    <li><strong>分步提问：</strong>让模型逐步推理，而非一次性输出。</li>
+    <li><strong>上下文引导：</strong>提供示例或角色设定，提升一致性。</li>
+    <li><strong>约束边界：</strong>用规则、格式或限制条件规范输出。</li>
+  </ul>
+
+  <h2>案例演示</h2>
+  <p>例如，你可以用以下提示词指导模型：</p>
+  <pre><code>你是一名技术博主，请写一段关于 AI 提示词工程的简短介绍，语气友好、逻辑清晰。</code></pre>
+
+  <p>通过优化提示词，不仅能让输出质量提升，还能让模型理解你的风格偏好。</p>
+
+  <hr class="soft">
+
+  <p><a href="../ai.html">← 返回 AI研学</a></p>
+</main>
+
+<!-- 引入 Waline JS -->
+<script src="https://unpkg.com/@waline/client@v2/dist/waline.js"></script>
+<script>
+  Waline.init({
+    el: '#waline',
+    serverURL: 'https://ba8aka.ziqian.my/',
+    path: window.location.pathname,
+    comment: true,
+    reaction: false,
+    dark: 'auto',
+    login: 'enable'
+  });
+</script>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><span class="digits">2025</span> © BA8AKA | All Rights Reserved</p>
+  </div>
+</footer>
+</body>
+</html>
